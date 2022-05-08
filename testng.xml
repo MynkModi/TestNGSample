@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <listeners>
+      <listener class-name = "listnerandreporter.CustomReporter" />
+  </listeners>
+  
+  <test thread-count="5" name="Test1">
+  	<parameter name = "myName" value="Adam"/>
+  	<parameter name = "zipCode" value="22109"/>
+    <classes>
+      <class name="demo1.BeforeAfterExample"/>
+      <class name="demo1.EnabledFalseExample"/>
+      <class name="demo1.ExpectedExceptionExample"/>
+      <class name="demo1.ParameterExample"/>
+      <class name="demo1.InvocationCountExample"/>
+      <class name="demo1.SoftAssertExample"/>
+    </classes>
+  </test>
+  
+  <test thread-count="5" name="Test2">
+  	<groups>
+         <run>
+            <include name = "grp3Smoke"/>
+         </run>
+      </groups>
+    <classes>
+      <class name="demo2.TestNGSampleD2Class1"/>
+      <class name="demo2.TestNGSampleD2Class2"/>
+      <class name="demo2.GroupTestExample"/>
+    </classes>
+  </test>
+  
+<!--    <test thread-count="5" name="Test3">
+   	<groups>
+	    <dependencies>
+	    	<group name="depend2" depends-on="depend1"></group>
+	    </dependencies>
+    </groups>
+    <classes>
+      <class name="demo3.DependencyExample">
+	      	<methods>
+		        <include name="checkResult" />
+		        <include name="checkTotalResult" />
+	         </methods>
+         </class>
+    </classes>
+  </test> -->
+  
+  <test thread-count="5" name="Test4" junit="true">
+    <classes>
+      <class name="demo4.JunitToTestNGExample"/>
+    </classes>
+  </test>
+  
+</suite>
